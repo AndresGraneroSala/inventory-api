@@ -11,25 +11,22 @@ import es.andres.biblioteca.Biblioteca.mapper.ProductMapper;
 import es.andres.biblioteca.Biblioteca.repository.ProductRepository;
 import es.andres.biblioteca.Biblioteca.service.CategoryService;
 import es.andres.biblioteca.Biblioteca.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-    @Autowired
-    ProductMapper productMapper;
+    private final ProductMapper productMapper;
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
-    @Autowired
-    private CategoryMapper categoryMapper;
+    private final CategoryMapper categoryMapper;
 
     @Override
     public ProductDto registerProduct(Long categoryId, ProductDto productDto) {

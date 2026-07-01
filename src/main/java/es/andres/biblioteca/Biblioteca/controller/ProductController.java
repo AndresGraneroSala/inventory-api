@@ -4,18 +4,18 @@ import es.andres.biblioteca.Biblioteca.dto.ProductDto;
 import es.andres.biblioteca.Biblioteca.entity.ProductState;
 import es.andres.biblioteca.Biblioteca.service.ProductService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-    @Autowired
-    ProductService productService;
+    private final ProductService productService;
 
     @GetMapping
     public ResponseEntity<List<ProductDto>> listProducts() {

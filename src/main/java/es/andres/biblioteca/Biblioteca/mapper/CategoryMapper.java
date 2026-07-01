@@ -2,15 +2,15 @@ package es.andres.biblioteca.Biblioteca.mapper;
 
 import es.andres.biblioteca.Biblioteca.dto.CategoryDto;
 import es.andres.biblioteca.Biblioteca.entity.Category;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@RequiredArgsConstructor
 @Component
 public class CategoryMapper {
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     public CategoryDto toDto(Category category){
         return modelMapper.map(category,CategoryDto.class);

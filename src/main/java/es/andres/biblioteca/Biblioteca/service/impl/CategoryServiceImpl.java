@@ -7,19 +7,18 @@ import es.andres.biblioteca.Biblioteca.exceptions.ResourceNotFoundException;
 import es.andres.biblioteca.Biblioteca.mapper.CategoryMapper;
 import es.andres.biblioteca.Biblioteca.repository.CategoryRepository;
 import es.andres.biblioteca.Biblioteca.service.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    private CategoryMapper categoryMapper;
+    private final CategoryMapper categoryMapper;
 
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
