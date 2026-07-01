@@ -1,0 +1,72 @@
+[
+  {
+    "productName": "Cien años de soledad",
+    "productDescription": "Novela de Gabriel García Márquez",
+    "productPrice": 19.99,
+    "productAmount": 5,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "El principito",
+    "productDescription": "Edición de bolsillo",
+    "productPrice": 9.50,
+    "productAmount": 20,
+    "productState": "NOT_AVAILABLE"
+  },
+  {
+    "productName": "Clean Code",
+    "productDescription": "Robert C. Martin",
+    "productPrice": 34.99,
+    "productAmount": 0,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "Teclado mecánico RGB",
+    "productDescription": "Switch azul, retroiluminado",
+    "productPrice": 89.99,
+    "productAmount": 15,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "Mouse inalámbrico",
+    "productDescription": "Ergonómico, 6 botones",
+    "productPrice": 45.00,
+    "productAmount": 8,
+    "productState": "NOT_AVAILABLE"
+  },
+  {
+    "productName": "Monitor 27 pulgadas",
+    "productDescription": "4K IPS, 144Hz",
+    "productPrice": 399.99,
+    "productAmount": 3,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "Silla ergonómica",
+    "productDescription": "Respaldo alto, soporte lumbar",
+    "productPrice": 259.00,
+    "productAmount": 0,
+    "productState": "NOT_AVAILABLE"
+  },
+  {
+    "productName": "Webcam HD",
+    "productDescription": "1080p con micrófono incorporado",
+    "productPrice": 59.99,
+    "productAmount": 12,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "Auriculares Bluetooth",
+    "productDescription": "Cancelación de ruido activa",
+    "productPrice": 79.99,
+    "productAmount": 25,
+    "productState": "AVAILABLE"
+  },
+  {
+    "productName": "Cable USB-C 2m",
+    "productDescription": "Carga rápida 100W, trenzado",
+    "productPrice": 12.99,
+    "productAmount": 50,
+    "productState": "NOT_AVAILABLE"
+  }
+]
