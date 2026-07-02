@@ -1,6 +1,5 @@
 package es.andres.biblioteca.Biblioteca.dto;
 
-import es.andres.biblioteca.Biblioteca.entity.Category;
 import es.andres.biblioteca.Biblioteca.entity.ProductState;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -36,8 +35,5 @@ public class ProductDto {
     private ProductState productState;
 
     @NotNull
-    private Category productCategory;
-
-
-
+    private CategoryDto productCategory;
 }

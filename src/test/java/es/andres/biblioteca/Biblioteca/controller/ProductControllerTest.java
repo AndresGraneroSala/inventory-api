@@ -1,8 +1,8 @@
 package es.andres.biblioteca.Biblioteca.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.andres.biblioteca.Biblioteca.dto.CategoryDto;
 import es.andres.biblioteca.Biblioteca.dto.ProductDto;
-import es.andres.biblioteca.Biblioteca.entity.Category;
 import es.andres.biblioteca.Biblioteca.entity.ProductState;
 import es.andres.biblioteca.Biblioteca.exceptions.BadRequestException;
 import es.andres.biblioteca.Biblioteca.exceptions.ResourceNotFoundException;
@@ -40,7 +40,7 @@ class ProductControllerTest {
     @MockitoBean
     private ProductService productService;
 
-    private final Category category = new Category(1L, "Ficción");
+    private final CategoryDto category = new CategoryDto(1L, "Ficción");
 
     private ProductDto buildValidProduct() {
         return new ProductDto(null, "Cien años de soledad", "Novela de García Márquez",
