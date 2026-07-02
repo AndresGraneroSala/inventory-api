@@ -28,6 +28,12 @@ public class ProductServiceImpl implements ProductService {
 
     private final CategoryMapper categoryMapper;
 
+    //Auxiliary method
+    private Product getProductByIdOrThrowException(Long id) {
+        return productRepository.findByProductId(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
+    }
+
     @Override
     public ProductDto registerProduct(Long categoryId, ProductDto productDto) {
 
@@ -58,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto findProductByName(String name) {
 
         Product product = productRepository.findByProductName(name)
-                .orElseThrow(() -> new ResourceNotFoundException("ProductDto with name " + name + " not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product with name " + name + " not found"));
 
         return productMapper.toDto(product);
 
@@ -66,16 +72,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto findProductById(Long id) {
-        Product product = productRepository.findByProductId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
-        return productMapper.toDto(product);
+        return productMapper.toDto(getProductByIdOrThrowException(id));
 
     }
 
 
     @Override
     public ProductDto updateProduct(Long id, ProductDto productDto) {
-        Product existProduct = productMapper.toEntity(findProductById(id));
+        Product existProduct = getProductByIdOrThrowException(id);
 
         existProduct.setProductName(productDto.getProductName());
         existProduct.setProductDescription(productDto.getProductDescription());
@@ -95,14 +99,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(Long id) {
-        ProductDto existProductDto = findProductById(id);
+        Product existProduct = getProductByIdOrThrowException(id);
 
-        productRepository.deleteById(id);
+        productRepository.delete(existProduct);
     }
 
     @Override
     public ProductDto changeProductState(Long id, ProductState productState) {
-        Product existProduct = productMapper.toEntity(findProductById(id));
+        Product existProduct = getProductByIdOrThrowException(id);
 
         existProduct.setProductState(productState);
 
