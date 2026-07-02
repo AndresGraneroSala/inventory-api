@@ -13,11 +13,13 @@ import es.andres.biblioteca.Biblioteca.service.CategoryService;
 import es.andres.biblioteca.Biblioteca.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+@Transactional(readOnly = true)
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
@@ -35,6 +37,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductDto registerProduct(Long categoryId, ProductDto productDto) {
 
         if (productDto.getProductPrice() == null || productDto.getProductPrice() <= 0) {
@@ -78,6 +81,7 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
+    @Transactional
     public ProductDto updateProduct(Long id, ProductDto productDto) {
         Product existProduct = getProductByIdOrThrowException(id);
 
@@ -98,6 +102,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void deleteProduct(Long id) {
         Product existProduct = getProductByIdOrThrowException(id);
 
@@ -105,6 +110,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductDto changeProductState(Long id, ProductState productState) {
         Product existProduct = getProductByIdOrThrowException(id);
 
