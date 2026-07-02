@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto registerProduct(Long categoryId, ProductDto productDto) {
 
         if (productDto.getProductPrice() == null || productDto.getProductPrice() <= 0) {
-            throw new BadRequestException("Precio tiene que ser mayor que 0");
+            throw new BadRequestException("The price must be greater than 0");
         }
 
 
@@ -43,14 +43,14 @@ public class ProductServiceImpl implements ProductService {
         product.setProductCategory(category);
 
         Product savedProduct = productRepository.save(product);
-        return productMapper.toDTO(savedProduct);
+        return productMapper.toDto(savedProduct);
     }
 
     @Override
     public List<ProductDto> findAllProducts() {
         List<Product> products = productRepository.findAll();
 
-        return products.stream().map(productMapper::toDTO).toList();
+        return products.stream().map(productMapper::toDto).toList();
 
     }
 
@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findByProductName(name)
                 .orElseThrow(() -> new ResourceNotFoundException("ProductDto with name " + name + " not found"));
 
-        return productMapper.toDTO(product);
+        return productMapper.toDto(product);
 
     }
 
@@ -68,7 +68,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto findProductById(Long id) {
         Product product = productRepository.findByProductId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
-        return productMapper.toDTO(product);
+        return productMapper.toDto(product);
 
     }
 
@@ -90,7 +90,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
 
-        return productMapper.toDTO(productRepository.save(existProduct));
+        return productMapper.toDto(productRepository.save(existProduct));
     }
 
     @Override
@@ -106,21 +106,21 @@ public class ProductServiceImpl implements ProductService {
 
         existProduct.setProductState(productState);
 
-        return productMapper.toDTO(productRepository.save(existProduct));
+        return productMapper.toDto(productRepository.save(existProduct));
     }
 
     @Override
     public List<ProductDto> findProductsByState(ProductState productState) {
         List<Product> products = productRepository.findByProductState(productState);
 
-        return products.stream().map(productMapper::toDTO).toList();
+        return products.stream().map(productMapper::toDto).toList();
 
     }
 
     @Override
     public List<ProductDto> findProductsByCategory(String categoryName) {
         List<Product> products = productRepository.findByProductCategoryCategoryName(categoryName);
-        return products.stream().map(productMapper::toDTO).toList();
+        return products.stream().map(productMapper::toDto).toList();
 
     }
 }

@@ -19,7 +19,7 @@ public class ProductMapper {
         modelMapper.map(productDto,existsProduct);
     }
 
-    public ProductDto toDTO(Product product){
+    public ProductDto toDto(Product product){
         return modelMapper.map(product,ProductDto.class);
     }
 

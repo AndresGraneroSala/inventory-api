@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-//manejador global de errores para los controladores
 @RestControllerAdvice
-public class GlobExceptionHandler {
+public class GlobalExceptionHandler {
 
-    //excepcion del metodo
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException exception) {
         ErrorResponse errorResponse = new ErrorResponse(exception.getMessage(),
