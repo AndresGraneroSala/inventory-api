@@ -148,6 +148,7 @@ Skills are in `.opencode/skills/<name>/SKILL.md`. Load with the skill tool.
 | `project-overview` | Get a full explanation of the project (stack, structure, conventions, endpoints) |
 | `audit-review` | Scan the codebase for anti-patterns and convention violations |
 | `generate-test` | Generate MockMvc tests for new or existing controllers following existing patterns |
+| `skill-tester` | Validate the output of any skill — verify correctness, completeness, and convention compliance |
 
 ## Workflow
 
