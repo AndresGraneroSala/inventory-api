@@ -133,6 +133,20 @@ graph TD
 ```
 <!-- API_CONCEPT_MAP_EN:END -->
 
+### AI Skills
+
+Skills are modular knowledge files (`.opencode/skills/<name>/SKILL.md`) that the AI agent loads on demand for specific tasks.
+
+| Skill | Description |
+|---|---|
+| `add-entity` | Generate a complete new entity with all layers (Entity → Repository → Service → DTO → Mapper → Controller → Tests) |
+| `api-concept-map` | Auto-generate API endpoint map from `@RestController` classes and insert into README |
+| `audit-review` | Scan the codebase for anti-patterns and convention violations |
+| `entity-mapper` | Auto-generate ER diagram from `@Entity` classes and insert into README |
+| `generate-test` | Generate MockMvc tests for new or existing controllers following existing patterns |
+| `project-overview` | Get a full explanation of the project (stack, structure, conventions, endpoints) |
+| `skill-tester` | Validate the output of any skill — verify correctness, completeness, and convention compliance |
+
 ### AI-Assisted Development
 
 This project was developed using **OpenCode**, an AI-first code agent, as a productivity multiplier. The approach follows software engineering best practices with AI:
@@ -270,6 +284,20 @@ graph TD
     end
 ```
 <!-- API_CONCEPT_MAP_ES:END -->
+
+### Skills de IA
+
+Las skills son archivos de conocimiento modular (`.opencode/skills/<name>/SKILL.md`) que el agente de IA carga bajo demanda para tareas específicas.
+
+| Skill | Descripción |
+|---|---|
+| `add-entity` | Genera una entidad completa con todas sus capas (Entity → Repository → Service → DTO → Mapper → Controller → Tests) |
+| `api-concept-map` | Genera automáticamente un mapa de endpoints desde los `@RestController` y lo inserta en el README |
+| `audit-review` | Escanea el código en busca de anti-patrones y violaciones de convenciones |
+| `entity-mapper` | Genera automáticamente un diagrama ER desde las clases `@Entity` y lo inserta en el README |
+| `generate-test` | Genera tests MockMvc para controladores nuevos o existentes siguiendo los patrones del proyecto |
+| `project-overview` | Obtén una explicación completa del proyecto (stack, estructura, convenciones, endpoints) |
+| `skill-tester` | Valida la salida de cualquier skill — verifica corrección, completitud y cumplimiento de convenciones |
 
 ### Desarrollo Asistido por IA
 
