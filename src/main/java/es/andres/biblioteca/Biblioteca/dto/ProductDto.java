@@ -36,4 +36,6 @@ public class ProductDto {
 
     @NotNull
     private CategoryDto productCategory;
+
+    private AuthorDto productAuthor;
 }

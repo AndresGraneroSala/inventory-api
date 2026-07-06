@@ -56,6 +56,11 @@ Biblioteca API is a portfolio project that demonstrates a clean, layered REST AP
 | `POST` | `/api/categories` | Create a new category |
 | `PUT` | `/api/categories/{id}` | Update a category |
 | `DELETE` | `/api/categories/{id}` | Delete a category |
+| `GET` | `/api/authors` | List all authors |
+| `GET` | `/api/authors/{id}` | Find author by ID |
+| `POST` | `/api/authors` | Create a new author |
+| `PUT` | `/api/authors/{id}` | Update an author |
+| `DELETE` | `/api/authors/{id}` | Delete an author |
 
 ### Swagger UI
 
@@ -97,7 +102,14 @@ erDiagram
         Long categoryId PK
         String categoryName
     }
+    Author {
+        Long authorId PK
+        String authorName
+        String authorNationality
+        Integer birthYear
+    }
     Product }o--|| Category : "productCategory"
+    Product }o--|| Author : "productAuthor"
 ```
 <!-- ENTITY_DIAGRAM_EN:END -->
 
@@ -123,6 +135,13 @@ graph TD
         GET_category_by_id["GET /api/categories/{id}"]
         PUT_category["PUT /api/categories/{id}"]
         DELETE_category["DELETE /api/categories/{id}"]
+    end
+    subgraph "API /api/authors"
+        POST_author["POST /api/authors"]
+        GET_authors["GET /api/authors"]
+        GET_author_by_id["GET /api/authors/{id}"]
+        PUT_author["PUT /api/authors/{id}"]
+        DELETE_author["DELETE /api/authors/{id}"]
     end
     subgraph "Layers"
         Client --> Controller
@@ -208,6 +227,11 @@ Biblioteca API es un proyecto de portafolio que demuestra una arquitectura REST 
 | `POST` | `/api/categories` | Crear una nueva categoría |
 | `PUT` | `/api/categories/{id}` | Actualizar una categoría |
 | `DELETE` | `/api/categories/{id}` | Eliminar una categoría |
+| `GET` | `/api/authors` | Listar todos los autores |
+| `GET` | `/api/authors/{id}` | Buscar autor por ID |
+| `POST` | `/api/authors` | Crear un nuevo autor |
+| `PUT` | `/api/authors/{id}` | Actualizar un autor |
+| `DELETE` | `/api/authors/{id}` | Eliminar un autor |
 
 ### Swagger UI
 
@@ -249,7 +273,14 @@ erDiagram
         Long categoryId PK
         String categoryName
     }
+    Author {
+        Long authorId PK
+        String authorName
+        String authorNationality
+        Integer birthYear
+    }
     Product }o--|| Category : "productCategory"
+    Product }o--|| Author : "productAuthor"
 ```
 <!-- ENTITY_DIAGRAM_ES:END -->
 
@@ -275,6 +306,13 @@ graph TD
         GET_category_by_id["GET /api/categories/{id}"]
         PUT_category["PUT /api/categories/{id}"]
         DELETE_category["DELETE /api/categories/{id}"]
+    end
+    subgraph "API /api/authors"
+        POST_author["POST /api/authors"]
+        GET_authors["GET /api/authors"]
+        GET_author_by_id["GET /api/authors/{id}"]
+        PUT_author["PUT /api/authors/{id}"]
+        DELETE_author["DELETE /api/authors/{id}"]
     end
     subgraph "Capas"
         Cliente --> Controlador

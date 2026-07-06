@@ -1,14 +1,17 @@
 package es.andres.biblioteca.Biblioteca.service.impl;
 
 import es.andres.biblioteca.Biblioteca.dto.ProductDto;
+import es.andres.biblioteca.Biblioteca.entity.Author;
 import es.andres.biblioteca.Biblioteca.entity.Category;
 import es.andres.biblioteca.Biblioteca.entity.Product;
 import es.andres.biblioteca.Biblioteca.entity.ProductState;
 import es.andres.biblioteca.Biblioteca.exceptions.BadRequestException;
 import es.andres.biblioteca.Biblioteca.exceptions.ResourceNotFoundException;
+import es.andres.biblioteca.Biblioteca.mapper.AuthorMapper;
 import es.andres.biblioteca.Biblioteca.mapper.CategoryMapper;
 import es.andres.biblioteca.Biblioteca.mapper.ProductMapper;
 import es.andres.biblioteca.Biblioteca.repository.ProductRepository;
+import es.andres.biblioteca.Biblioteca.service.AuthorService;
 import es.andres.biblioteca.Biblioteca.service.CategoryService;
 import es.andres.biblioteca.Biblioteca.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +33,10 @@ public class ProductServiceImpl implements ProductService {
 
     private final CategoryMapper categoryMapper;
 
+    private final AuthorService authorService;
+
+    private final AuthorMapper authorMapper;
+
     //Auxiliary method
     private Product getProductByIdOrThrowException(Long id) {
         return productRepository.findByProductId(id)
@@ -50,6 +57,11 @@ public class ProductServiceImpl implements ProductService {
         Product product = productMapper.toEntity(productDto);
 
         product.setProductCategory(category);
+
+        if (productDto.getProductAuthor() != null && productDto.getProductAuthor().getAuthorId() != null) {
+            Author author = authorMapper.toEntity(authorService.findAuthorById(productDto.getProductAuthor().getAuthorId()));
+            product.setProductAuthor(author);
+        }
 
         Product savedProduct = productRepository.save(product);
         return productMapper.toDto(savedProduct);
@@ -97,6 +109,10 @@ public class ProductServiceImpl implements ProductService {
             existProduct.setProductCategory(category);
         }
 
+        if (productDto.getProductAuthor() != null && productDto.getProductAuthor().getAuthorId() != null) {
+            Author author = authorMapper.toEntity(authorService.findAuthorById(productDto.getProductAuthor().getAuthorId()));
+            existProduct.setProductAuthor(author);
+        }
 
         return productMapper.toDto(productRepository.save(existProduct));
     }

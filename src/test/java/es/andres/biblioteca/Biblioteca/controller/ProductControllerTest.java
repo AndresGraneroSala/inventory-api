@@ -1,6 +1,7 @@
 package es.andres.biblioteca.Biblioteca.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.andres.biblioteca.Biblioteca.dto.AuthorDto;
 import es.andres.biblioteca.Biblioteca.dto.CategoryDto;
 import es.andres.biblioteca.Biblioteca.dto.ProductDto;
 import es.andres.biblioteca.Biblioteca.entity.ProductState;
@@ -41,10 +42,11 @@ class ProductControllerTest {
     private ProductService productService;
 
     private final CategoryDto category = new CategoryDto(1L, "Ficción");
+    private final AuthorDto author = new AuthorDto(1L, "Gabriel García Márquez", "Colombiana", 1927);
 
     private ProductDto buildValidProduct() {
         return new ProductDto(null, "Cien años de soledad", "Novela de García Márquez",
-                19.99, 5, ProductState.AVAILABLE, category);
+                19.99, 5, ProductState.AVAILABLE, category, author);
     }
 
     // ==================== GET /api/products ====================
